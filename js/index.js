@@ -7,10 +7,8 @@ const input = new ValidateInput(app,{
     value: '',
     placeholder: 'Имя'
 });
-
-
-if(input.value == ''){
-    input.appendError('Введите имя');
-}
-
-input.value = 'Vasya';
+const input2 = new ValidateInput(app,{
+    type: 'text',
+    value: '',
+    placeholder: 'sdfsfd'
+});
