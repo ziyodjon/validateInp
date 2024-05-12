@@ -1,23 +1,16 @@
-export class ValidateInput{
+export default class ValidateInput{
 
     constructor(container,inptObj){
 
         this.inputWrapper = document.createElement('div');
         this.inputWrapper.classList.add('inputWrapper');
         this.input = document.createElement('input');
-        
-        this.input.placeholder = this.placeholder;
+                
         this.container = container;
-        this.label = document.createElement('label');
         this.type = inptObj.type;
         this.value = inptObj.value;
-        //this.placeholder = inptObj.placeholder;
-        this.input.type = this.type;
-        this.input.value = this.value;
-        
+        this.placeholder = inptObj.placeholder;
 
-        
-        
         this.inputWrapper.append(this.input);
         this.container.append(this.inputWrapper);
     }
@@ -29,6 +22,7 @@ export class ValidateInput{
     }
 
     set type(value){
+        this.input.type = this.type;
         if(this.input.type){
             this.input.type = value;
         }      
@@ -41,6 +35,7 @@ export class ValidateInput{
     }
 
     set value(value){
+        this.input.value = this.value;
         if(this.input.value){
             this.input.value = value;
         }      
@@ -53,6 +48,7 @@ export class ValidateInput{
     }
 
     set placeholder(value){
+        this.input.placeholder = this.placeholder;
         if(this.input.placeholder){
             this.input.placeholder = value;
         }      
@@ -61,6 +57,7 @@ export class ValidateInput{
 
     createLabelError(text){
         this.deleteLabelError();
+        this.label = document.createElement('label');
         this.label.textContent = text;
         this.label.classList.add('error');
 
