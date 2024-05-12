@@ -1,47 +1,71 @@
 export class ValidateInput{
 
+    _type ='';
+
     constructor(container,inptObj){
 
         this.container = container;
+        this.label = document.createElement('label');
         this.type = inptObj.type;
         this.value = inptObj.value;
         this.placeholder = inptObj.placeholder;
 
-        const input = document.createElement('input');
-        input.type = this.type;
-        input.value = this.value;
-        input.placeholder = this.placeholder;
-        this.container.append(input);
-
-        input.addEventListener('input',(event) => {
-            //event.target.style.background = ""; 
-            console.log('object');
-        });
-
-        input.addEventListener('focusout',(event) => {
-            console.log(event.target.parentNode);
-            this.appendError('Введите имя'); 
-            event.target.style.background = "pink";           
-        });
-
+        this.inputWrapper = document.createElement('div');
+        this.inputWrapper.classList.add('inputWrapper');
+        this.input = document.createElement('input');
+        this.input.type = this.type;
+        this.input.value = this.value;
+        this.input.placeholder = this.placeholder;
+        this.inputWrapper.append(this.input);
+        this.container.append(this.inputWrapper);
 
     }
 
+    get type (){
+        return this._type;
+    }
+
+    set type(value){
+        if(value === 'button'){
+            console.log(value);
+            this.updateLabelText('Hello moto');
+            return this._type = value;
+        }        
+    }
+
+    createLabelError(text){
+        this.deleteLabelError();
+        this.label.textContent = text;
+        this.label.classList.add('error');
+
+        return this.label; 
+    }
+
+    deleteLabelError(){
+        if(this.label){
+            this.label.remove();
+            //this.label = null;
+        }
+    }
     
-    appendError(text){
-        const label = document.createElement('label');
-        label.textContent = text;
-        label.classList.add('error');
+    createError(text,position = 'bottom'){
         
-        this.container.append(label);
+        this.labelError = this.createLabelError(text);
+        
+        if(position === 'bottom'){;
+            this.deleteLabelError();
+        }
+        
+        if(position === 'top'){
+            this.inputWrapper.prepend(this.labelError);
+        }
+        
     }
 
-    preappendError(text){
-        const label = document.createElement('label');
-        label.textContent = text;
-        label.classList.add('error');
-
-        this.container.prepend(label);
+    updateLabelText(text){
+        if(this.label){
+            this.label.textContent = text;
+        }
     }
 
 }

@@ -12,3 +12,13 @@ const input2 = new ValidateInput(app,{
     value: '',
     placeholder: 'sdfsfd'
 });
+
+input.createError('Type your name here','top');
+input2.createError('Type your name','bottom');
+
+input.updateLabelText('Changed text here');
+
+input.type = 'button';
+
+
+
