@@ -3,13 +3,13 @@ import ValidateInput from '../class/ValidateInput.js';
 const form = document.getElementById('app');
 const cancelBtn = document.querySelector('.cancel-btn');
 
-const input = new ValidateInput(app,{
+const name = new ValidateInput(app,{
         type: 'text',
         value: '',
         placeholder: 'Введите имя ....'
 });
 
-const input2 = new ValidateInput(app,{
+const login = new ValidateInput(app,{
     type: 'text',
     value: '',
     placeholder: 'Введите ваш логин ....'
@@ -18,20 +18,21 @@ const input2 = new ValidateInput(app,{
 
 form.addEventListener('submit',(event) => {
     event.preventDefault();
-    input.validateInput();
-    input2.validateInput();
-    if(input.validateInput() && input2.validateInput()){
+    name.validateInput();
+    login.validateInput();
+    if(name.validateInput() && login.validateInput()){
         alert('Messages are sent');
-        input.value = '';
-        input2.value = '';
+        name.value = '';
+        login.value = '';
     }
+
 });
 
 cancelBtn.addEventListener('click', () => {
-    input.deleteLabelError();
-    input2.deleteLabelError();
-    input.value = '';
-    input2.value = '';
+    name.deleteLabelError();
+    login.deleteLabelError();
+    name.value = '';
+    login.value = '';
 });
 
 

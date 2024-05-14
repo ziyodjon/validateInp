@@ -12,8 +12,7 @@ export default class ValidateInput extends ErrorInput{
     }
 
     validateInput() {
-
-        if (this.value === '') {
+        if (this.chekValue()) {
           this.createError(this.placeholder);
           this.input.classList.add('error');
           return false;
@@ -24,5 +23,9 @@ export default class ValidateInput extends ErrorInput{
 
         return true;
 
+    }
+
+    chekValue(){
+        return this.value === '';  
     }
 }
