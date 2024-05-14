@@ -3,6 +3,7 @@ import ErrorInput from './ErroInp.js';
 export default class ValidateInput extends ErrorInput{
 
     constructor(container,inptObj){
+        
         super(container,inptObj);
         
         this.input.addEventListener('input',() =>{
@@ -10,16 +11,18 @@ export default class ValidateInput extends ErrorInput{
         });
     }
 
-    
+    validateInput() {
 
-    validateInput(input) {
-
-        if (input === '') {
-          this.createError('Введите текст....');
+        if (this.value === '') {
+          this.createError(this.placeholder);
           this.input.classList.add('error');
+          return false;
         }  else {
-          this.deleteLabelError();
+            this.input.classList.remove('error');
+            this.deleteLabelError();
         }
 
-      }
+        return true;
+
+    }
 }

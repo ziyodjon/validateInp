@@ -5,15 +5,15 @@ export default class ErrorInput{
         this.inputWrapper = document.createElement('div');
         this.inputWrapper.classList.add('inputWrapper','container');
         this.input = document.createElement('input');
-        this.input.classList.add('form-control');
+        this.input.classList.add('myinput','form-control');
                 
         this.container = container;
         this.type = inptObj.type;
         this.value = inptObj.value;
         this.placeholder = inptObj.placeholder;
 
-        this.inputWrapper.append(this.input);
-        this.container.append(this.inputWrapper);
+        this.inputWrapper.prepend(this.input);
+        this.container.prepend(this.inputWrapper);
     }
 
     get type (){
@@ -54,7 +54,7 @@ export default class ErrorInput{
 
 
     createLabelError(text){
-        //this.deleteLabelError();
+        this.deleteLabelError();
         this.label = document.createElement('label');
         this.label.classList.add('alert', 'alert-danger');
         this.label.textContent = text;
@@ -66,6 +66,7 @@ export default class ErrorInput{
     deleteLabelError(){
         if(this.label){
             this.label.remove();
+            this.input.classList.remove('error');
         }
     }
     

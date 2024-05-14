@@ -9,3 +9,8 @@ label{
 .error,.error:focus{
     border:1px solid red;
 }
+
+
+.myinput{
+    margin-bottom:15px;
+}
