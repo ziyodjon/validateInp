@@ -1,7 +1,11 @@
 label{
-    font-size:11px;
+    /* label-error */
     font-weight: normal;
     font-style: italic;
     color:red;
     display: block;
+    margin-top:10px;
+}
+.error{
+    border:1px solid red;
 }

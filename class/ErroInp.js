@@ -1,10 +1,11 @@
-export default class ValidateInput{
+export default class ErrorInput{
 
     constructor(container,inptObj){
 
         this.inputWrapper = document.createElement('div');
-        this.inputWrapper.classList.add('inputWrapper');
+        this.inputWrapper.classList.add('inputWrapper','container');
         this.input = document.createElement('input');
+        this.input.classList.add('form-control');
                 
         this.container = container;
         this.type = inptObj.type;
@@ -16,27 +17,25 @@ export default class ValidateInput{
     }
 
     get type (){
-        if(this.input.type){
+        if(this.input){
             return this.input.type;
         }
     }
 
     set type(value){
-        this.input.type = this.type;
-        if(this.input.type){
+        if(this.input){
             this.input.type = value;
         }      
     }
 
     get value (){
-        if(this.input.value){
+        if(this.input){
             return this.input.value;
         }
     }
 
     set value(value){
-        this.input.value = this.value;
-        if(this.input.value){
+        if(this.input){
             this.input.value = value;
         }      
     }
@@ -48,16 +47,16 @@ export default class ValidateInput{
     }
 
     set placeholder(value){
-        this.input.placeholder = this.placeholder;
-        if(this.input.placeholder){
+        if(this.input){
             this.input.placeholder = value;
         }      
     }
 
 
     createLabelError(text){
-        this.deleteLabelError();
+        //this.deleteLabelError();
         this.label = document.createElement('label');
+        this.label.classList.add('alert', 'alert-danger');
         this.label.textContent = text;
         this.label.classList.add('error');
 
