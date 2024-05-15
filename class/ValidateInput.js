@@ -7,25 +7,26 @@ export default class ValidateInput extends ErrorInput{
         super(container,inptObj);
         
         this.input.addEventListener('input',() =>{
-            this.validateInput(this.value);
+            this.validateInput();
         });
     }
 
     validateInput() {
-        if (this.chekValue()) {
+        
+        if (this.checkValue()) {
           this.createError(this.placeholder);
           this.input.classList.add('error');
           return false;
-        }  else {
+        } else {
             this.input.classList.remove('error');
             this.deleteLabelError();
+            return true;
         }
-
-        return true;
 
     }
 
-    chekValue(){
+    checkValue(){
+        console.log('check father');
         return this.value === '';  
     }
 }
