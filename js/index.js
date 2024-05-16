@@ -3,6 +3,7 @@ import PasswordValidInput from '../class/PasswordValidInput.js';
 import LoginValidInput from '../class/LoginValidInput.js';
 
 const form = document.getElementById('app');
+
 const cancelBtn = document.querySelector('.cancel-btn');
 
 const name = new ValidateInput(app,{
@@ -42,8 +43,10 @@ form.addEventListener('submit',(event) => {
 cancelBtn.addEventListener('click', () => {
     name.deleteLabelError();
     login.deleteLabelError();
+    password.deleteLabelError();
     name.value = '';
     login.value = '';
+    password.value = '';
 });
 
 
