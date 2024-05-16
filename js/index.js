@@ -1,5 +1,6 @@
 import ValidateInput from '../class/ValidateInput.js';
 import PasswordValidInput from '../class/PasswordValidInput.js';
+import LoginValidInput from '../class/LoginValidInput.js';
 
 const form = document.getElementById('app');
 const cancelBtn = document.querySelector('.cancel-btn');
@@ -10,10 +11,10 @@ const name = new ValidateInput(app,{
         placeholder: 'Введите имя ....'
 });
 
-const login = new ValidateInput(app,{
+const login = new LoginValidInput(app,{
     type: 'text',
     value: '',
-    placeholder: 'Введите ваш логин ....'
+    placeholder: 'Введите ваш логин'
 });
 
 const password = new PasswordValidInput(app,{
@@ -29,7 +30,7 @@ form.addEventListener('submit',(event) => {
     const validName = name.validateInput();
     const validLogin = login.validateInput();
     const validPassword = password.validateInput();
-    
+
     if(validName && validLogin && validPassword){
         alert('Messages are sent');
         name.value = '';

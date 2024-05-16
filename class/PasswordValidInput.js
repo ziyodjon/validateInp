@@ -3,6 +3,7 @@ import ValidateInput from "./ValidateInput.js";
 export default class PasswordValidInput extends ValidateInput{
     constructor(container,inptObj){
         super(container,inptObj);
+        this.errorLabel = 'Введите не меньше 6 знаков и не больше 15 знаков';
     }
 
 

@@ -1,6 +1,7 @@
 import ErrorInput from './ErroInp.js';
 
 export default class ValidateInput extends ErrorInput{
+    errorLabel = 'Ошибка данных';
 
     constructor(container,inptObj){
         
@@ -14,7 +15,7 @@ export default class ValidateInput extends ErrorInput{
     validateInput() {
         
         if (this.checkValue()) {
-          this.createError(this.placeholder);
+          this.createError(this.errorLabel);
           this.input.classList.add('error');
           return false;
         } else {
@@ -26,7 +27,6 @@ export default class ValidateInput extends ErrorInput{
     }
 
     checkValue(){
-        console.log('check father');
         return this.value === '';  
     }
 }
